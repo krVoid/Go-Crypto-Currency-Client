@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #343a40;
+  color: #ec9f02;
+  font-size: 27px;
+  min-width: 100vw;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 44px;
+  box-shadow: 0 15px 25px -3px rgba(0, 0, 0, 0.11);
+  position: fixed !important;
+  top: 0px;
+  z-index: 1;
+}
+.navbar-icons {
+  width: 100%;
+}
+.navbar-logo {
+  float: right;
+  cursor: pointer;
+  &__img {
+    height: 28px;
+  }
+}
+.navbar-menu {
+  float: left;
+  cursor: pointer;
+}

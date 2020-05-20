@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/dist/css/bootstrap.css";
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+// }
+.header-page {
+  text-align: center;
+  margin-top: 40px;
+  font-family: "Droid Sans", sans-serif;
+  font-weight: bold;
+  color: #58595a;
+}
+
+.subheader-page {
+  text-align: center;
+  margin: 30px auto;
+  font-size: 18px;
+  color: #85878c;
+}
+
+button {
+  margin-right: 15px;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: smaller;
+  color: white;
+  border-radius: 50rem !important;
+  user-select: none;
+  border: 1px solid transparent;
+  line-height: 1.5;
+  border-radius: 50rem !important;
+  padding: 0.5rem 1.8rem !important;
+
+  &[disabled] {
+    opacity: 0.6;
+  }
+}
+.button-save {
+  background-color: #1abc9c;
+  &:hover:not([disabled]) {
+    background-color: #8de3d2;
+  }
+}
+
+.button-cancel {
+  background-color: #3565a6;
+  &:hover:not([disabled]) {
+    background-color: #6699de;
+  }
+}
+
+.button-remove {
+  background-color: #fb4f05;
+  &:hover:not([disabled]) {
+    background-color: #f78757;
+  }
+}
