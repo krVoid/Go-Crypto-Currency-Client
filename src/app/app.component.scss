@@ -10,3 +10,15 @@
   right: 0;
   bottom: 0;
 }
+.form__label {
+  font-weight: bold;
+  color: #58595a;
+}
+.custom-input {
+  border-radius: 50rem !important;
+  padding: 1rem !important;
+  /* margin-left: 5px; */
+  height: 40px !important;
+  padding-left: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
