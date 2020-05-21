@@ -1,0 +1,25 @@
+<div>
+  <h1 class="header-page">Network Nodes</h1>
+  <button class="button-cancel">
+    Register in network
+  </button>
+</div>
+<p class="subheader-page">
+  Nodes that are currently in Your network.
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Index</th>
+      <th scope="col">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of transactions; let i = index">
+      <th>{{ i }}</th>
+      <td>
+        {{ t }}
+      </td>
+    </tr>
+  </tbody>
+</table>

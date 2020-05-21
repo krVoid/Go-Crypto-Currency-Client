@@ -10,9 +10,11 @@ import {
   NavbarComponent,
   BlocksGridComponent,
   SidenavComponent,
-  TranslationsGridComponent,
+  TransactionsGridComponent,
+  NetworkNodesGridComponent,
 } from "./components";
 import { MatSidenavModule } from "@angular/material/sidenav";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MatSidenavModule } from "@angular/material/sidenav";
     NavbarComponent,
     BlocksGridComponent,
     SidenavComponent,
-    TranslationsGridComponent,
+    TransactionsGridComponent,
+    NetworkNodesGridComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
     NgbModule,
     FormsModule,
     MatSidenavModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

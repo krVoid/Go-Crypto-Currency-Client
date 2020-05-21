@@ -1,7 +1,11 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
-import { BlocksGridComponent, TranslationsGridComponent } from "./components";
+import {
+  BlocksGridComponent,
+  TransactionsGridComponent,
+  NetworkNodesGridComponent,
+} from "./components";
 
 const routes: Routes = [
   {
@@ -14,7 +18,15 @@ const routes: Routes = [
   },
   {
     path: "blocks/:id",
-    component: TranslationsGridComponent,
+    component: TransactionsGridComponent,
+  },
+  {
+    path: "transations",
+    component: TransactionsGridComponent,
+  },
+  {
+    path: "network",
+    component: NetworkNodesGridComponent,
   },
 ];
 

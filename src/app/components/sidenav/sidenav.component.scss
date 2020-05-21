@@ -1,15 +1,34 @@
-.example-container {
+.sidenav-container {
   width: 100%;
   height: 100%;
 }
 
-.example-sidenav-content {
+.sidenav-content {
 }
 
-.example-sidenav {
+.sidenav {
   width: 200px;
   padding-left: 20px;
   padding-top: 40px;
   background-color: #343a40;
   color: white;
+  font-family: "Droid Sans", sans-serif;
+}
+
+.sidenav-element {
+  font-size: 18px;
+  padding-bottom: 13px;
+  cursor: pointer;
+  outline: 0;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.sidenav-header {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  // font-family: "Droid Sans", sans-serif;
 }

@@ -1,0 +1,28 @@
+<h1 class="header-page">Transactions</h1>
+
+<p class="subheader-page" *nfIf="idBlock; else pendingT">
+  translations for block ###
+</p>
+<p class="subheader-page" #pendingT>
+  Pending transactions
+</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sender</th>
+      <th scope="col">Recipient</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Signature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let t of transactions">
+      <th>{{ t.sender }}</th>
+      <td>
+        {{ t.recipient }}
+      </td>
+      <td>{{ t.amount }}</td>
+      <td>{{ t.signature }}</td>
+    </tr>
+  </tbody>
+</table>

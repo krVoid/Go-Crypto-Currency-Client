@@ -5,11 +5,18 @@ import { MatDrawer } from "@angular/material/sidenav";
 @Component({
   selector: "app-sidenav",
   template: `
-    <mat-drawer-container class="example-container" autosize>
-      <mat-drawer #drawer class="example-sidenav" mode="side">
-        <p>MENU</p>
+    <mat-drawer-container class="sidenav-container" autosize>
+      <mat-drawer #drawer class="sidenav" mode="side">
+        <p class="sidenav-header">MENU</p>
+        <p class="sidenav-element" routerLink="/blocks">Blocks</p>
+        <p class="sidenav-element" routerLink="/transations">
+          Pending tranactions
+        </p>
+        <p class="sidenav-element">Keys</p>
+        <p class="sidenav-element">Account balance</p>
+        <p class="sidenav-element" routerLink="/network">Network nodes</p>
       </mat-drawer>
-      <div class="example-sidenav-content">
+      <div class="sidenav-content">
         <ng-content></ng-content>
       </div>
     </mat-drawer-container>
