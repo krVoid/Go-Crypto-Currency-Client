@@ -34,7 +34,6 @@ export class NetworkNodesGridComponent implements OnInit {
     });
     this.apiService.getNetworkNodes().then((r) => {
       this.transactions = r;
-      console.log(r);
     });
   }
 
@@ -43,7 +42,6 @@ export class NetworkNodesGridComponent implements OnInit {
   }
   public registerNetwork(): void {
     const formData = this.modelGroup.getRawValue();
-    console.log(formData);
     this.apiService.postNetworkNodes(formData);
   }
 }

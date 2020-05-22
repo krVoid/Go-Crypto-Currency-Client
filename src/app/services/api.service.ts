@@ -1,38 +1,44 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { NetworkNode } from "../dto";
+import { environment } from "../../../src/environments/environment";
+
+const LOCALHOST_URL = "http://localhost:";
 
 @Injectable({
   providedIn: "root",
 })
 export class ApiService {
-  constructor(private httpService: HttpClient) {}
+  private apiUrl = "";
+  constructor(private httpService: HttpClient) {
+    this.apiUrl = environment.apiurl;
+    console.log(this.apiUrl);
+  }
 
   public getBlocks(): Promise<any> {
-    return this.httpService.get("http://localhost:9000/blockchain").toPromise();
+    return this.httpService.get(this.apiUrl + "/blockchain").toPromise();
   }
 
   public getTransactionsForBlock(id: number): Promise<any> {
     return this.httpService
-      .get("http://localhost:9000/blockchain/" + id + "/transactions")
+      .get(this.apiUrl + "/blockchain/" + id + "/transactions")
       .toPromise();
   }
 
   public getPendingTransactions(): Promise<any> {
     return this.httpService
-      .get("http://localhost:9000/pendingTransactions")
+      .get(this.apiUrl + "/pendingTransactions")
       .toPromise();
   }
 
   public getNetworkNodes(): Promise<any> {
-    return this.httpService
-      .get("http://localhost:9000/networkNodes")
-      .toPromise();
+    return this.httpService.get(this.apiUrl + "/networkNodes").toPromise();
   }
 
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
+    networkNode.networknodeurl = LOCALHOST_URL + networkNode.networknodeurl;
     return this.httpService
-      .post("http://localhost:9000/registerNodeInExistingNetwork", networkNode)
+      .post(this.apiUrl + "/registerNodeInExistingNetwork", networkNode)
       .toPromise();
   }
 }
