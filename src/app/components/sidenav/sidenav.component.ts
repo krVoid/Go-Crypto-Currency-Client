@@ -13,7 +13,9 @@ import { MatDrawer } from "@angular/material/sidenav";
           Pending tranactions
         </p>
         <p class="sidenav-element" routerLink="/keys">Keys</p>
-        <p class="sidenav-element">Account balance</p>
+        <p class="sidenav-element" routerLink="/account-balance">
+          Account balance
+        </p>
         <p class="sidenav-element" routerLink="/network">Network nodes</p>
       </mat-drawer>
       <div class="sidenav-content">

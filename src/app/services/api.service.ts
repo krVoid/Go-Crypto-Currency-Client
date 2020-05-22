@@ -43,6 +43,12 @@ export class ApiService {
     return this.httpService.get(this.apiUrl + "/mine/" + nickname).toPromise();
   }
 
+  public getBalance(nickname: string): Promise<any> {
+    return this.httpService
+      .get(this.apiUrl + "/balance/" + nickname)
+      .toPromise();
+  }
+
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
     networkNode.networknodeurl = LOCALHOST_URL + networkNode.networknodeurl;
     return this.httpService
@@ -55,6 +61,7 @@ export class ApiService {
       .post(this.apiUrl + "/newRsaKeyPair/" + nickname, {})
       .toPromise();
   }
+
   public postTransaction(t: Transactions): Promise<any> {
     return this.httpService
       .post(this.apiUrl + "/transaction/broadcast", t)

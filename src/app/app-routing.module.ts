@@ -7,6 +7,7 @@ import {
   NetworkNodesGridComponent,
   KeysGridComponent,
   TransactionFormComponent,
+  AccountBalanceComponent,
 } from "./components";
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: "keys",
     component: KeysGridComponent,
+  },
+  {
+    path: "account-balance",
+    component: AccountBalanceComponent,
   },
 ];
 

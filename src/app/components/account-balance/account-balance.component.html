@@ -1,0 +1,36 @@
+<h1 class="header-page">Account balance</h1>
+
+<p class="subheader-page"></p>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col">
+      <div ngbDropdown>
+        <input
+          class="form-control custom-input"
+          ngbDropdownToggle
+          placeholder="Choose key by nickname"
+          [(ngModel)]="mineKey"
+          readonly="true"
+        />
+
+        <div ngbDropdownMenu>
+          <li *ngFor="let k of keys">
+            <button ngbDropdownItem (click)="setMineKey(k)">
+              {{ k.nickname }}
+            </button>
+          </li>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="buttons-footer__button button-cancel buttons-footer--left"
+        (click)="checkBalance()"
+      >
+        Check balance
+      </button>
+      <p class="subheader-page" *ngIf="balance">Your balance: {{ balance }}</p>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
