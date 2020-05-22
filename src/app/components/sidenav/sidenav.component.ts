@@ -12,7 +12,7 @@ import { MatDrawer } from "@angular/material/sidenav";
         <p class="sidenav-element" routerLink="/transations">
           Pending tranactions
         </p>
-        <p class="sidenav-element">Keys</p>
+        <p class="sidenav-element" routerLink="/keys">Keys</p>
         <p class="sidenav-element">Account balance</p>
         <p class="sidenav-element" routerLink="/network">Network nodes</p>
       </mat-drawer>

@@ -5,6 +5,7 @@ import {
   BlocksGridComponent,
   TransactionsGridComponent,
   NetworkNodesGridComponent,
+  KeysGridComponent,
 } from "./components";
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: "network",
     component: NetworkNodesGridComponent,
+  },
+  {
+    path: "keys",
+    component: KeysGridComponent,
   },
 ];
 

@@ -12,6 +12,7 @@ import {
   SidenavComponent,
   TransactionsGridComponent,
   NetworkNodesGridComponent,
+  KeysGridComponent,
 } from "./components";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { RouterModule } from "@angular/router";
@@ -24,6 +25,7 @@ import { RouterModule } from "@angular/router";
     SidenavComponent,
     TransactionsGridComponent,
     NetworkNodesGridComponent,
+    KeysGridComponent,
   ],
   imports: [
     BrowserModule,

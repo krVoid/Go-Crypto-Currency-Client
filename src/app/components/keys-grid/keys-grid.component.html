@@ -1,0 +1,100 @@
+<div>
+  <h1 class="header-page">Keys</h1>
+  <button class="button-cancel" (click)="openModal()">
+    Add key
+  </button>
+</div>
+<p class="subheader-page"></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nickname</th>
+      <th scope="col">Private key</th>
+      <th scope="col">Public key</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let key of keys">
+      <th>{{ key.nickname }}</th>
+      <td>{{ key.private_key }}</td>
+      <td>{{ key.public_key }}</td>
+      <td>
+        <button class="button-remove" (click)="openRemoveModal(key.nickname)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #addKeyModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Add new key</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label class="form__label">Nickaname: </label>
+      <input
+        type="text"
+        class="form-control custom-input"
+        [(ngModel)]="newKey"
+      />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="buttons-footer__button button-cancel buttons-footer--left"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="buttons-footer__button button-save buttons-footer--right"
+      (click)="saveNewKey()"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #removeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Remove key</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="buttons-footer__button button-cancel buttons-footer--left"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="buttons-footer__button button-remove buttons-footer--right"
+      (click)="deleteKey()"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>

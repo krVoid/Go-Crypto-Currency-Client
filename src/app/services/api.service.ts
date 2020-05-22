@@ -35,10 +35,26 @@ export class ApiService {
     return this.httpService.get(this.apiUrl + "/networkNodes").toPromise();
   }
 
+  public getKeys(): Promise<any> {
+    return this.httpService.get(this.apiUrl + "/rsaKeyPairs").toPromise();
+  }
+
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
     networkNode.networknodeurl = LOCALHOST_URL + networkNode.networknodeurl;
     return this.httpService
       .post(this.apiUrl + "/registerNodeInExistingNetwork", networkNode)
+      .toPromise();
+  }
+
+  public postKey(nickname: string): Promise<any> {
+    return this.httpService
+      .post(this.apiUrl + "/newRsaKeyPair/" + nickname, {})
+      .toPromise();
+  }
+
+  public deleteKey(nickname: string): Promise<any> {
+    return this.httpService
+      .delete(this.apiUrl + "/deleteRsaKeyPair/" + nickname)
       .toPromise();
   }
 }
