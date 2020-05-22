@@ -39,6 +39,10 @@ export class ApiService {
     return this.httpService.get(this.apiUrl + "/rsaKeyPairs").toPromise();
   }
 
+  public getMine(nickname: string): Promise<any> {
+    return this.httpService.get(this.apiUrl + "/mine/" + nickname).toPromise();
+  }
+
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
     networkNode.networknodeurl = LOCALHOST_URL + networkNode.networknodeurl;
     return this.httpService

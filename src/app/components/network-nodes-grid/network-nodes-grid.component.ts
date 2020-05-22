@@ -1,10 +1,5 @@
-import {
-  Router,
-  ActivatedRouteSnapshot,
-  ActivatedRoute,
-} from "@angular/router";
 import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
-import { Transactions } from "src/app/dto";
+import { NetworkNode } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -17,13 +12,11 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class NetworkNodesGridComponent implements OnInit {
   @ViewChild("registerModal") public registerModal: ElementRef;
   public idBlock: number | undefined = undefined;
-  public transactions: Transactions[];
+  public transactions: NetworkNode[];
   public modelGroup!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
     private apiService: ApiService,
     private modalService: NgbModal
   ) {}

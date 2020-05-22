@@ -1,11 +1,14 @@
 <h1 class="header-page">Transactions</h1>
+<button class="button-cancel" (click)="openModal()">
+  Mine
+</button>
+<p class="subheader-page" *ngIf="idBlock; else pendingT">
+  Translations for block {{ idBlock }}
+</p>
 
-<p class="subheader-page" *nfIf="idBlock; else pendingT">
-  translations for block ###
-</p>
-<p class="subheader-page" #pendingT>
-  Pending transactions
-</p>
+<ng-template #pendingT>
+  <p class="subheader-page">Pending transactions</p>
+</ng-template>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,3 +29,63 @@
     </tr>
   </tbody>
 </table>
+
+<ng-template #mineModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Mine pending transactions</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- <form [formGroup]="modelGroup"> -->
+    <div ngbDropdown class="d-inline-block">
+      <input
+        class="form-control custom-input"
+        id="dropdownBasic1"
+        ngbDropdownToggle
+        placeholder="Choose key by nickname"
+        [(ngModel)]="mineKey"
+        readonly="true"
+      />
+
+      <div ngbDropdownMenu>
+        <li *ngFor="let k of keys">
+          <button ngbDropdownItem (click)="setMineKey(k.nickname)">
+            {{ k.nickname }}
+          </button>
+        </li>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+        <label class="form__label">nicknameKey: </label>
+        <input
+          type="text"
+          class="form-control custom-input"
+          formControlName="nicknameKey"
+        />
+      </div> -->
+    <!-- </form> -->
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="buttons-footer__button button-cancel buttons-footer--left"
+      (click)="modal.dismiss('Cross click')"
+    >
+      Cancel
+    </button>
+    <button
+      type="button"
+      class="buttons-footer__button button-save buttons-footer--right"
+      (click)="mine()"
+    >
+      Mine
+    </button>
+  </div>
+</ng-template>
