@@ -4,3 +4,4 @@ export * from "./sidenav/sidenav.component";
 export * from "./transactions-grid/transactions-grid.component";
 export * from "./network-nodes-grid/network-nodes-grid.component";
 export * from "./keys-grid/keys-grid.component";
+export * from "./transaction-form/transaction-form.component";

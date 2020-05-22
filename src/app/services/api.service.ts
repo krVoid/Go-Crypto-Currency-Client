@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { NetworkNode } from "../dto";
+import { NetworkNode, Transactions } from "../dto";
 import { environment } from "../../../src/environments/environment";
 
 const LOCALHOST_URL = "http://localhost:";
@@ -53,6 +53,11 @@ export class ApiService {
   public postKey(nickname: string): Promise<any> {
     return this.httpService
       .post(this.apiUrl + "/newRsaKeyPair/" + nickname, {})
+      .toPromise();
+  }
+  public postTransaction(t: Transactions): Promise<any> {
+    return this.httpService
+      .post(this.apiUrl + "/transaction/broadcast", t)
       .toPromise();
   }
 

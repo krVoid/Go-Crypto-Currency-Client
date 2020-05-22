@@ -2,6 +2,9 @@
 <button class="button-cancel" (click)="openModal()">
   Mine
 </button>
+<button class="button-cancel" (click)="navigateToAdd()">
+  Add transaction
+</button>
 <p class="subheader-page" *ngIf="idBlock; else pendingT">
   Translations for block {{ idBlock }}
 </p>

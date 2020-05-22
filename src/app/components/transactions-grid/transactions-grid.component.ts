@@ -25,6 +25,7 @@ export class TransactionsGridComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private apiService: ApiService,
     private modalService: NgbModal
   ) {}
@@ -58,5 +59,9 @@ export class TransactionsGridComponent implements OnInit {
 
   public setMineKey(nickname: string): void {
     this.mineKey = nickname;
+  }
+
+  public navigateToAdd(): void {
+    this.router.navigate(["transations/add"]);
   }
 }
