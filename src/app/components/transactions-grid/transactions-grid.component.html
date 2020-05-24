@@ -5,7 +5,7 @@
       <h1 class="header-page">Transaction</h1>
     </div>
     <div class="col centered">
-      <button class="button-cancel" (click)="openModal()">
+      <button *ngIf="!idBlock" class="button-cancel" (click)="openModal()">
         Mine
       </button>
     </div>
@@ -18,7 +18,7 @@
       </p>
     </div>
     <div class="col centered">
-      <button class="button-cancel" (click)="navigateToAdd()">
+      <button *ngIf="!idBlock" class="button-cancel" (click)="navigateToAdd()">
         Add transaction
       </button>
     </div>

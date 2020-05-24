@@ -11,6 +11,17 @@ body {
   font-family: "Droid Sans", sans-serif !important;
 }
 
+.buttons-footer {
+  width: 100%;
+
+  &--right {
+    float: right;
+  }
+
+  &--left {
+    float: left;
+  }
+}
 button {
   margin-right: 15px;
   font-weight: 700 !important;

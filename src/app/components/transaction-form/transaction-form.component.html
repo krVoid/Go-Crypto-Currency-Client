@@ -6,60 +6,64 @@
 <div class="container">
   <div class="row">
     <div class="col"></div>
-    <div class="col-5">
-      <div ngbDropdown>
-        <input
-          class="form-control custom-input"
-          ngbDropdownToggle
-          placeholder="Choose key by nickname"
-          [(ngModel)]="mineKey"
-          readonly="true"
-        />
+    <div class="col-6">
+      <div class="transaction-form">
+        <div ngbDropdown class="form-group">
+          <label class="form__label">Key: </label>
 
-        <div ngbDropdownMenu>
-          <li *ngFor="let k of keys">
-            <button ngbDropdownItem (click)="setMineKey(k)">
-              {{ k.nickname }}
-            </button>
-          </li>
+          <input
+            class="form-control custom-input"
+            ngbDropdownToggle
+            placeholder="Choose key by nickname"
+            [(ngModel)]="mineKey"
+            readonly="true"
+          />
+
+          <div ngbDropdownMenu>
+            <li *ngFor="let k of keys">
+              <button ngbDropdownItem (click)="setMineKey(k)">
+                {{ k.nickname }}
+              </button>
+            </li>
+          </div>
         </div>
+        <form [formGroup]="modelGroup">
+          <div class="form-group">
+            <label class="form__label">Recipient: </label>
+            <input
+              type="text"
+              class="form-control custom-input"
+              formControlName="recipient"
+              [ngClass]="{
+                'is-invalid': f.recipient.errors && !f.recipient.pristine
+              }"
+            />
+            <div
+              *ngIf="f.recipient.errors && !f.recipient.pristine"
+              class="invalid-feedback"
+            >
+              This field is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form__label">Amount: </label>
+            <input
+              type="number"
+              class="form-control custom-input"
+              formControlName="amount"
+              [ngClass]="{
+                'is-invalid': f.amount.errors && !f.amount.pristine
+              }"
+            />
+            <div
+              *ngIf="f.amount.errors && !f.amount.pristine"
+              class="invalid-feedback"
+            >
+              This field is required.
+            </div>
+          </div>
+        </form>
       </div>
-      <form [formGroup]="modelGroup">
-        <div class="form-group">
-          <label class="form__label">Recipient: </label>
-          <input
-            type="text"
-            class="form-control custom-input"
-            formControlName="recipient"
-            [ngClass]="{
-              'is-invalid': f.recipient.errors && !f.recipient.pristine
-            }"
-          />
-          <div
-            *ngIf="f.recipient.errors && !f.recipient.pristine"
-            class="invalid-feedback"
-          >
-            This field is required.
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="form__label">Amount: </label>
-          <input
-            type="number"
-            class="form-control custom-input"
-            formControlName="amount"
-            [ngClass]="{
-              'is-invalid': f.amount.errors && !f.amount.pristine
-            }"
-          />
-          <div
-            *ngIf="f.amount.errors && !f.amount.pristine"
-            class="invalid-feedback"
-          >
-            This field is required.
-          </div>
-        </div>
-      </form>
       <button
         type="button"
         class="buttons-footer__button button-cancel buttons-footer--left"

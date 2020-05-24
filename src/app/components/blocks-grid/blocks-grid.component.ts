@@ -6,7 +6,6 @@ import { Block } from "../../dto";
 @Component({
   selector: "app-blocks",
   templateUrl: "blocks-grid.component.html",
-  styleUrls: ["blocks-grid.component.scss"],
   encapsulation: ViewEncapsulation.None,
 })
 export class BlocksGridComponent implements OnInit {
