@@ -19,7 +19,7 @@ export class BlocksGridComponent implements OnInit {
     });
   }
 
-  public navigateToTranslations(id: number): void {
+  public navigateToTransactions(id: number): void {
     this.router.navigate(["blocks/" + id]);
   }
 

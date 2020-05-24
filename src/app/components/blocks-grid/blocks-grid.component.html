@@ -21,7 +21,7 @@
       <th scope="col">Hash</th>
       <th scope="col">Index</th>
       <th scope="col">Nonce</th>
-      <th scope="col">Privious hash</th>
+      <th scope="col">Previous hash</th>
       <th scope="col">Timestamp</th>
       <th scope="col"></th>
     </tr>
@@ -36,7 +36,7 @@
       <td>{{ b.previoushash }}</td>
       <td>{{ b.timestamp }}</td>
       <td>
-        <button class="button-cancel" (click)="navigateToTranslations(b.index)">
+        <button class="button-cancel" (click)="navigateToTransactions(b.index)">
           Transactions
         </button>
       </td>
