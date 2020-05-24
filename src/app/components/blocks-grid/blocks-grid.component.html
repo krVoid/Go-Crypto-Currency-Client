@@ -1,8 +1,20 @@
-<h1 class="header-page">Blocks on chain</h1>
+<div class="header">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <h1 class="header-page">Blocks on chain</h1>
+      <p class="subheader-page">
+        In this table You can see all chains.
+      </p>
+    </div>
+    <div class="col centered">
+      <button class="button-cancel" (click)="consensus()">
+        Consensus
+      </button>
+    </div>
+  </div>
+</div>
 
-<p class="subheader-page">
-  In this table You can see all chains.
-</p>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -31,18 +43,3 @@
     </tr>
   </tbody>
 </table>
-
-<!-- <div class="d-flex justify-content-between p-2">
-  <ngb-pagination
-    [collectionSize]="collectionSize"
-    [(page)]="page"
-    [pageSize]="pageSize"
-  >
-  </ngb-pagination>
-
-  <select class="custom-select" style="width: auto;" [(ngModel)]="pageSize">
-    <option [ngValue]="2">2 items per page</option>
-    <option [ngValue]="4">4 items per page</option>
-    <option [ngValue]="6">6 items per page</option>
-  </select>
-</div> -->

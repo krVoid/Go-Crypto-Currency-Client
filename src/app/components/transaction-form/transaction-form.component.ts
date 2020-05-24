@@ -1,5 +1,5 @@
 import { Router } from "@angular/router";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Key } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
   selector: "app-transaction-form",
   templateUrl: "transaction-form.component.html",
   styleUrls: ["transaction-form.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TransactionFormComponent implements OnInit {
   public modelGroup!: FormGroup;

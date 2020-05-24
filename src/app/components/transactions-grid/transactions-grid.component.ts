@@ -3,7 +3,13 @@ import {
   ActivatedRouteSnapshot,
   ActivatedRoute,
 } from "@angular/router";
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+} from "@angular/core";
 import { Transactions, Key } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
@@ -13,6 +19,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
   selector: "app-transactions",
   templateUrl: "transactions-grid.component.html",
   styleUrls: ["transactions-grid.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class TransactionsGridComponent implements OnInit {
   @ViewChild("mineModal") public mineModal: ElementRef;
@@ -38,6 +45,29 @@ export class TransactionsGridComponent implements OnInit {
     this.apiService.getKeys().then((r) => {
       this.keys = r;
     });
+    this.setTransactions();
+  }
+
+  public openModal(): void {
+    this.modalService.open(this.mineModal, { centered: true });
+  }
+
+  public mine(): void {
+    this.apiService.getMine(this.mineKey).then(() => {
+      this.setTransactions();
+      this.modalService.dismissAll();
+    });
+  }
+
+  public setMineKey(nickname: string): void {
+    this.mineKey = nickname;
+  }
+
+  public navigateToAdd(): void {
+    this.router.navigate(["transations/add"]);
+  }
+
+  private setTransactions() {
     if (this.idBlock) {
       this.apiService.getTransactionsForBlock(this.idBlock).then((r) => {
         this.transactions = r;
@@ -47,21 +77,5 @@ export class TransactionsGridComponent implements OnInit {
         this.transactions = r;
       });
     }
-  }
-
-  public openModal(): void {
-    this.modalService.open(this.mineModal, { centered: true });
-  }
-
-  public mine(): void {
-    this.apiService.getMine(this.mineKey).then((r) => console.log(r));
-  }
-
-  public setMineKey(nickname: string): void {
-    this.mineKey = nickname;
-  }
-
-  public navigateToAdd(): void {
-    this.router.navigate(["transations/add"]);
   }
 }

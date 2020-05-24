@@ -1,10 +1,18 @@
-<div>
-  <h1 class="header-page">Keys</h1>
-  <button class="button-cancel" (click)="openModal()">
-    Add key
-  </button>
+<div class="header">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <h1 class="header-page">Keys</h1>
+      <p class="subheader-page"></p>
+    </div>
+    <div class="col centered">
+      <button class="button-cancel" (click)="openModal()">
+        Add key
+      </button>
+    </div>
+  </div>
 </div>
-<p class="subheader-page"></p>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -30,7 +38,7 @@
 
 <ng-template #addKeyModal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Add new key</h4>
+    <h2 class="modal-title">Add new key</h2>
     <button
       type="button"
       class="close"
@@ -70,7 +78,7 @@
 
 <ng-template #removeModal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Remove key</h4>
+    <h2 class="modal-title">Remove key</h2>
     <button
       type="button"
       class="close"
@@ -80,7 +88,9 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
+  <div class="modal-body">
+    <p>Are you sure you want ro remove this {{ keyToRemove }} key?</p>
+  </div>
   <div class="modal-footer">
     <button
       type="button"
@@ -94,7 +104,7 @@
       class="buttons-footer__button button-remove buttons-footer--right"
       (click)="deleteKey()"
     >
-      Save
+      Remove
     </button>
   </div>
 </ng-template>

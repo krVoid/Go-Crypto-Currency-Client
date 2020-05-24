@@ -1,14 +1,29 @@
-<h1 class="header-page">Transactions</h1>
-<button class="button-cancel" (click)="openModal()">
-  Mine
-</button>
-<button class="button-cancel" (click)="navigateToAdd()">
-  Add transaction
-</button>
-<p class="subheader-page" *ngIf="idBlock; else pendingT">
-  Translations for block {{ idBlock }}
-</p>
-
+<div class="header">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <h1 class="header-page">Transaction</h1>
+    </div>
+    <div class="col centered">
+      <button class="button-cancel" (click)="openModal()">
+        Mine
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <p class="subheader-page" *ngIf="idBlock; else pendingT">
+        Translations for block {{ idBlock }}
+      </p>
+    </div>
+    <div class="col centered">
+      <button class="button-cancel" (click)="navigateToAdd()">
+        Add transaction
+      </button>
+    </div>
+  </div>
+</div>
 <ng-template #pendingT>
   <p class="subheader-page">Pending transactions</p>
 </ng-template>
@@ -35,7 +50,7 @@
 
 <ng-template #mineModal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Mine pending transactions</h4>
+    <h2 class="modal-title">Mine pending transactions</h2>
     <button
       type="button"
       class="close"
@@ -47,7 +62,7 @@
   </div>
   <div class="modal-body">
     <!-- <form [formGroup]="modelGroup"> -->
-    <div ngbDropdown class="d-inline-block">
+    <div ngbDropdown>
       <input
         class="form-control custom-input"
         id="dropdownBasic1"

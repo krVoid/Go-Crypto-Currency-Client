@@ -1,12 +1,21 @@
-<div>
-  <h1 class="header-page">Network Nodes</h1>
-  <button class="button-cancel" (click)="openModal()">
-    Register in network
-  </button>
+<div></div>
+<div class="header">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-5">
+      <h1 class="header-page">Network Nodes</h1>
+      <p class="subheader-page">
+        Nodes that are currently in Your network.
+      </p>
+    </div>
+    <div class="col centered">
+      <button class="button-cancel" (click)="openModal()">
+        Register in network
+      </button>
+    </div>
+  </div>
 </div>
-<p class="subheader-page">
-  Nodes that are currently in Your network.
-</p>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -15,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let t of transactions; let i = index">
+    <tr *ngFor="let t of networkNodes; let i = index">
       <th>{{ i }}</th>
       <td>
         {{ t }}
@@ -26,7 +35,7 @@
 
 <ng-template #registerModal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Register in existing network</h4>
+    <h2 class="modal-title">Register in existing network</h2>
     <button
       type="button"
       class="close"
@@ -40,12 +49,14 @@
     <form [formGroup]="modelGroup">
       <div class="form-group">
         <label class="form__label">URL: </label>
-        http://localhost:
-        <input
-          type="number"
-          class="form-control custom-input"
-          formControlName="networknodeurl"
-        />
+        <div class="networkNodes">
+          <p class="networkNodes__label">http://localhost:</p>
+          <input
+            type="number"
+            class="form-control custom-input"
+            formControlName="networknodeurl"
+          />
+        </div>
       </div>
     </form>
   </div>

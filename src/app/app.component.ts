@@ -1,4 +1,4 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, ViewEncapsulation } from "@angular/core";
 import { MatDrawer } from "@angular/material/sidenav";
 import { SidenavComponent } from "./components";
 
@@ -14,6 +14,7 @@ import { SidenavComponent } from "./components";
     </div>
   `,
   styleUrls: ["./app.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
   // @ViewChild("drawer") drawer: MatDrawer;

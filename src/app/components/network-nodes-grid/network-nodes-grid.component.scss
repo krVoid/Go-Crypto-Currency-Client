@@ -1,14 +1,9 @@
-.header-page {
-  text-align: center;
-  margin-top: 40px;
-  font-family: "Droid Sans", sans-serif;
+.networkNodes__label {
+  margin-top: 8px !important;
+  font-size: 15px;
   font-weight: bold;
   color: #58595a;
 }
-
-.subheader-page {
-  text-align: center;
-  margin: 30px auto;
-  font-size: 18px;
-  color: #85878c;
+.networkNodes {
+  display: flex;
 }

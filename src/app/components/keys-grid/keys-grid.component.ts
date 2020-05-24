@@ -1,18 +1,19 @@
 import {
-  Router,
-  ActivatedRouteSnapshot,
-  ActivatedRoute,
-} from "@angular/router";
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  ViewEncapsulation,
+} from "@angular/core";
 import { Key } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-keys",
   templateUrl: "keys-grid.component.html",
   styleUrls: ["keys-grid.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class KeysGridComponent implements OnInit {
   @ViewChild("addKeyModal") public addKeyModal: ElementRef;
@@ -22,16 +23,10 @@ export class KeysGridComponent implements OnInit {
   public newKey: string;
   public keyToRemove = null;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute,
-    private apiService: ApiService,
-    private modalService: NgbModal
-  ) {}
+  constructor(private apiService: ApiService, private modalService: NgbModal) {}
 
   public ngOnInit(): void {
-    this.apiService.getKeys().then((r) => (this.keys = r));
+    this.setKeys();
   }
 
   public openModal(): void {
@@ -44,10 +39,20 @@ export class KeysGridComponent implements OnInit {
   }
 
   public saveNewKey(): void {
-    this.apiService.postKey(this.newKey);
+    this.apiService.postKey(this.newKey).then(() => {
+      this.setKeys();
+      this.modalService.dismissAll();
+    });
   }
 
   public deleteKey(): void {
-    this.apiService.deleteKey(this.keyToRemove).then();
+    this.apiService.deleteKey(this.keyToRemove).then(() => {
+      this.setKeys();
+      this.modalService.dismissAll();
+    });
+  }
+
+  private setKeys(): void {
+    this.apiService.getKeys().then((r) => (this.keys = r));
   }
 }
