@@ -1,6 +1,6 @@
 import { Router } from "@angular/router";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { Key } from "src/app/dto";
+import { Key, Transactions } from "src/app/dto";
 import { ApiService } from "src/app/services";
 
 @Component({
@@ -13,6 +13,7 @@ export class AccountBalanceComponent implements OnInit {
   public keys: Key[];
   public mineKey: string = "";
   public balance = undefined;
+  public transactions: Transactions[];
 
   constructor(private router: Router, private apiService: ApiService) {}
 
@@ -27,5 +28,8 @@ export class AccountBalanceComponent implements OnInit {
     this.apiService
       .getBalance(this.mineKey)
       .then((r) => (this.balance = r.balance));
+    this.apiService
+      .getTransactions(this.mineKey)
+      .then((t) => (this.transactions = t));
   }
 }

@@ -43,6 +43,12 @@ export class ApiService {
     return this.httpService.get(this.apiUrl + "/mine/" + nickname).toPromise();
   }
 
+  public getTransactions(nickname: string): Promise<any> {
+    return this.httpService
+      .get(this.apiUrl + "/transactions/" + nickname)
+      .toPromise();
+  }
+
   public getConsensus(): Promise<any> {
     return this.httpService.get(this.apiUrl + "/consensus").toPromise();
   }

@@ -38,3 +38,27 @@
     <div class="col"></div>
   </div>
 </div>
+<div *ngIf="transactions">
+  <h1 class="header-page">Recent transactions</h1>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Sender</th>
+        <th scope="col">Recipient</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Signature</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of transactions">
+        <th>{{ t.sender }}</th>
+        <td>
+          {{ t.recipient }}
+        </td>
+        <td>{{ t.amount }}</td>
+        <td>{{ t.signature }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
