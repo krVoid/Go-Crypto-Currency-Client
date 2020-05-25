@@ -30,14 +30,14 @@
         <form [formGroup]="modelGroup">
           <div class="form-group">
             <label class="form__label">Recipient: </label>
-            <input
+            <textarea
               type="text"
-              class="form-control custom-input"
+              class="form-control"
               formControlName="recipient"
               [ngClass]="{
                 'is-invalid': f.recipient.errors && !f.recipient.pristine
               }"
-            />
+            ></textarea>
             <div
               *ngIf="f.recipient.errors && !f.recipient.pristine"
               class="invalid-feedback"
