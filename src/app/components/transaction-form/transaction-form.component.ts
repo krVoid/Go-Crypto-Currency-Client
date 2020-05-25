@@ -38,7 +38,11 @@ export class TransactionFormComponent implements OnInit {
   }
 
   public setMineKey(k: Key): void {
-    this.modelGroup.controls.sender.setValue(k.public_key);
+    console.log(k.public_key);
+    console.log(JSON.stringify(this.keys[0].public_key).slice(1, -1));
+    this.modelGroup.controls.sender.setValue(
+      JSON.stringify(k.public_key).slice(1, -1)
+    );
     this.mineKey = k.nickname;
   }
 
@@ -48,6 +52,10 @@ export class TransactionFormComponent implements OnInit {
 
   public save(): void {
     if (this.modelGroup.valid) {
+      //   this.modelGroup.controls.sender.value = this.modelGroup.controls.sender.value.replace(
+      //     /\\n/g,
+      //     "\n"
+      //   );
       const formData = this.modelGroup.getRawValue();
       this.apiService
         .postTransaction(formData)
