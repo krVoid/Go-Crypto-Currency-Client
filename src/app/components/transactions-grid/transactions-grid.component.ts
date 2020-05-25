@@ -1,8 +1,4 @@
-import {
-  Router,
-  ActivatedRouteSnapshot,
-  ActivatedRoute,
-} from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import {
   Component,
   OnInit,
@@ -14,6 +10,7 @@ import { Transactions, Key } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ClipboardService } from "ngx-clipboard";
 
 @Component({
   selector: "app-transactions",
@@ -34,7 +31,8 @@ export class TransactionsGridComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private _clipboardService: ClipboardService
   ) {}
 
   public ngOnInit(): void {
@@ -61,6 +59,10 @@ export class TransactionsGridComponent implements OnInit {
 
   public setMineKey(nickname: string): void {
     this.mineKey = nickname;
+  }
+
+  public copyTekst(t: string): void {
+    this._clipboardService.copyFromContent(t);
   }
 
   public navigateToAdd(): void {

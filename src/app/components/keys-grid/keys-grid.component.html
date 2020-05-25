@@ -25,8 +25,22 @@
   <tbody>
     <tr *ngFor="let key of keys">
       <th>{{ key.nickname }}</th>
-      <td>{{ key.private_key }}</td>
-      <td>{{ key.public_key }}</td>
+      <td>
+        <i
+          class="fa fa-copy copy-icon"
+          (click)="copyTekst(key.private_key)"
+          title="Copy private key"
+        ></i>
+        <p class="cell">{{ key.private_key }}</p>
+      </td>
+      <td>
+        <i
+          class="fa fa-copy copy-icon"
+          (click)="copyTekst(key.public_key)"
+          title="Copy public key"
+        ></i>
+        <p class="cell">{{ key.public_key }}</p>
+      </td>
       <td>
         <button class="button-remove" (click)="openRemoveModal(key.nickname)">
           Delete

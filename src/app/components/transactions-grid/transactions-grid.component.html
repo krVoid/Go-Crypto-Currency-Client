@@ -27,6 +27,7 @@
 <ng-template #pendingT>
   <p class="subheader-page">Pending transactions</p>
 </ng-template>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -38,12 +39,33 @@
   </thead>
   <tbody>
     <tr *ngFor="let t of transactions">
-      <th>{{ t.sender }}</th>
+      <th>
+        <i
+          class="fa fa-copy copy-icon"
+          (click)="copyTekst(t.sender)"
+          title="Copy sender"
+        ></i>
+        <p class="cell">{{ t.sender }}</p>
+      </th>
       <td>
-        {{ t.recipient }}
+        <i
+          class="fa fa-copy copy-icon"
+          (click)="copyTekst(t.recipient)"
+          title="Copy recipient"
+        ></i>
+        <p class="cell">
+          {{ t.recipient }}
+        </p>
       </td>
       <td>{{ t.amount }}</td>
-      <td>{{ t.signature }}</td>
+      <td>
+        <i
+          class="fa fa-copy copy-icon"
+          (click)="copyTekst(t.signature)"
+          title="Copy signature"
+        ></i>
+        <p class="cell">{{ t.signature }}</p>
+      </td>
     </tr>
   </tbody>
 </table>

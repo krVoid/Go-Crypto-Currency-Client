@@ -2,6 +2,7 @@ import { Router } from "@angular/router";
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Key, Transactions } from "src/app/dto";
 import { ApiService } from "src/app/services";
+import { ClipboardService } from "ngx-clipboard";
 
 @Component({
   selector: "app-account-balance",
@@ -15,7 +16,11 @@ export class AccountBalanceComponent implements OnInit {
   public balance = undefined;
   public transactions: Transactions[];
 
-  constructor(private router: Router, private apiService: ApiService) {}
+  constructor(
+    private router: Router,
+    private _clipboardService: ClipboardService,
+    private apiService: ApiService
+  ) {}
 
   public ngOnInit(): void {
     this.apiService.getKeys().then((r) => {
@@ -23,6 +28,9 @@ export class AccountBalanceComponent implements OnInit {
     });
   }
 
+  public copyTekst(t: string): void {
+    this._clipboardService.copyFromContent(t);
+  }
   public setMineKey(k: Key): void {
     this.mineKey = k.nickname;
     this.apiService

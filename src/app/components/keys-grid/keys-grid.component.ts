@@ -8,6 +8,7 @@ import {
 import { Key } from "src/app/dto";
 import { ApiService } from "src/app/services";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ClipboardService } from "ngx-clipboard";
 
 @Component({
   selector: "app-keys",
@@ -23,7 +24,11 @@ export class KeysGridComponent implements OnInit {
   public newKey: string;
   public keyToRemove = null;
 
-  constructor(private apiService: ApiService, private modalService: NgbModal) {}
+  constructor(
+    private apiService: ApiService,
+    private modalService: NgbModal,
+    private _clipboardService: ClipboardService
+  ) {}
 
   public ngOnInit(): void {
     this.setKeys();
@@ -50,6 +55,10 @@ export class KeysGridComponent implements OnInit {
       this.setKeys();
       this.modalService.dismissAll();
     });
+  }
+
+  public copyTekst(t: string): void {
+    this._clipboardService.copyFromContent(t);
   }
 
   private setKeys(): void {

@@ -18,6 +18,7 @@ import {
 } from "./components";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { RouterModule } from "@angular/router";
+import { ClipboardModule } from "ngx-clipboard";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { RouterModule } from "@angular/router";
     FormsModule,
     MatSidenavModule,
     RouterModule,
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
