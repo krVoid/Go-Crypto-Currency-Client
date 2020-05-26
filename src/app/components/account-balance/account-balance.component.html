@@ -11,7 +11,7 @@
 
 <p class="subheader-page"></p>
 <div class="container">
-  <div class="row">
+  <div class="row" >
     <div class="col"></div>
     <div class="col">
       <div ngbDropdown>
@@ -41,7 +41,7 @@
 <div *ngIf="transactions">
   <h1 class="header-page">Recent transactions</h1>
 
-  <table class="table table-striped">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">Sender</th>
@@ -51,7 +51,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let t of transactions">
+      <tr *ngFor="let t of transactions" [ngClass]="t.sender === publicKey ? 'red-row' : 'green-row'">
         <th>
           <i
             class="fa fa-copy copy-icon"

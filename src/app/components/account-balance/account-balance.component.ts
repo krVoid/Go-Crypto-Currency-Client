@@ -15,6 +15,7 @@ export class AccountBalanceComponent implements OnInit {
   public mineKey: string = "";
   public balance = undefined;
   public transactions: Transactions[];
+  public publicKey: string;
 
   constructor(
     private router: Router,
@@ -33,6 +34,7 @@ export class AccountBalanceComponent implements OnInit {
   }
   public setMineKey(k: Key): void {
     this.mineKey = k.nickname;
+    this.publicKey = k.public_key;
     this.apiService
       .getBalance(this.mineKey)
       .then((r) => (this.balance = r.balance));
