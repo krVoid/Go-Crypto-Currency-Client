@@ -48,14 +48,9 @@ export class TransactionFormComponent implements OnInit {
 
   public save(): void {
     if (this.modelGroup.valid) {
-      //   this.modelGroup.controls.sender.value = this.modelGroup.controls.sender.value.replace(
-      //     /\\n/g,
-      //     "\n"
-      //   );
       const formData = this.modelGroup.getRawValue();
-      this.apiService
-        .postTransaction(formData)
-        .then(() => this.navigateToPending());
+      this.apiService.postTransaction(formData);
+      this.navigateToPending();
     }
   }
 }

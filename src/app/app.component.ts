@@ -1,6 +1,5 @@
 import { Component, ViewChild, ViewEncapsulation } from "@angular/core";
-import { MatDrawer } from "@angular/material/sidenav";
-import { SidenavComponent } from "./components";
+import { SidenavComponent } from "./ui";
 
 @Component({
   selector: "app-root",

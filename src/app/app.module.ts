@@ -7,9 +7,7 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import {
-  NavbarComponent,
   BlocksGridComponent,
-  SidenavComponent,
   TransactionsGridComponent,
   NetworkNodesGridComponent,
   KeysGridComponent,
@@ -19,6 +17,7 @@ import {
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { RouterModule } from "@angular/router";
 import { ClipboardModule } from "ngx-clipboard";
+import { NavbarComponent, SidenavComponent } from "./ui";
 
 @NgModule({
   declarations: [
