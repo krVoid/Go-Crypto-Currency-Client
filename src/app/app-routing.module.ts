@@ -13,7 +13,8 @@ import {
 const routes: Routes = [
   {
     path: "",
-    component: AppComponent,
+    redirectTo: "/blocks",
+    pathMatch: "full",
   },
   {
     path: "blocks",
