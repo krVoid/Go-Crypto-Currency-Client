@@ -3,8 +3,6 @@ import { Injectable } from "@angular/core";
 import { NetworkNode, Transactions } from "../dto";
 import { environment } from "../../../src/environments/environment";
 
-const LOCALHOST_URL = "http://localhost:";
-
 @Injectable({
   providedIn: "root",
 })
@@ -60,7 +58,7 @@ export class ApiService {
   }
 
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
-    networkNode.networknodeurl = LOCALHOST_URL + networkNode.networknodeurl;
+    networkNode.networknodeurl = networkNode.networknodeurl;
     return this.httpService
       .post(this.apiUrl + "/registerNodeInExistingNetwork", networkNode)
       .toPromise();
