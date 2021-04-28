@@ -25,16 +25,16 @@ export class ApiService {
 
   public getPendingTransactions(): Promise<any> {
     return this.httpService
-      .get(this.apiUrl + "/pendingTransactions")
+      .get(this.apiUrl + "/pending-transactions")
       .toPromise();
   }
 
   public getNetworkNodes(): Promise<any> {
-    return this.httpService.get(this.apiUrl + "/networkNodes").toPromise();
+    return this.httpService.get(this.apiUrl + "/network-nodes").toPromise();
   }
 
   public getKeys(): Promise<any> {
-    return this.httpService.get(this.apiUrl + "/rsaKeyPairs").toPromise();
+    return this.httpService.get(this.apiUrl + "/rsa-key-pairs").toPromise();
   }
 
   public getMine(nickname: string): Promise<any> {
@@ -60,13 +60,13 @@ export class ApiService {
   public postNetworkNodes(networkNode: NetworkNode): Promise<any> {
     networkNode.networknodeurl = networkNode.networknodeurl;
     return this.httpService
-      .post(this.apiUrl + "/registerNodeInExistingNetwork", networkNode)
+      .post(this.apiUrl + "/register-in-existing-network", networkNode)
       .toPromise();
   }
 
   public postKey(nickname: string): Promise<any> {
     return this.httpService
-      .post(this.apiUrl + "/newRsaKeyPair/" + nickname, {})
+      .post(this.apiUrl + "/rsa-key-pairs/" + nickname, {})
       .toPromise();
   }
 
@@ -78,7 +78,7 @@ export class ApiService {
 
   public deleteKey(nickname: string): Promise<any> {
     return this.httpService
-      .delete(this.apiUrl + "/deleteRsaKeyPair/" + nickname)
+      .delete(this.apiUrl + "/rsa-key-pairs/" + nickname)
       .toPromise();
   }
 }
